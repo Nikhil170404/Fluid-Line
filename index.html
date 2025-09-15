@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>WebCraft - Professional Web Development Services | 30% Cheaper Than Competitors</title>
+    <meta name="description" content="Transform your business with AI-enhanced websites that are fast, beautiful, and results-driven. Professional web development services at 30% cheaper than competitors." />
+    <meta name="keywords" content="web development, mobile apps, e-commerce, custom software, UI/UX design, digital solutions, website design, Mumbai, India" />
+    <meta name="author" content="WebCraft Digital Solutions" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webcraft.com/" />
+    <meta property="og:title" content="WebCraft - Professional Web Development Services" />
+    <meta property="og:description" content="Transform your business with AI-enhanced websites. 30% cheaper than competitors with professional quality." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:site_name" content="WebCraft" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://webcraft.com/" />
+    <meta property="twitter:title" content="WebCraft - Professional Web Development Services" />
+    <meta property="twitter:description" content="Transform your business with AI-enhanced websites. 30% cheaper than competitors with professional quality." />
+    <meta property="twitter:image" content="/twitter-image.jpg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://webcraft.com/" />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WebCraft",
+      "description": "Professional web development services at 30% cheaper than competitors",
+      "url": "https://webcraft.com",
+      "logo": "https://webcraft.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-99-8765-4321",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "405, Corporate Annex, Next to Cello House, Sonawala Road",
+        "addressLocality": "Goregaon (E)",
+        "addressRegion": "Mumbai",
+        "postalCode": "400063",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/webcraft",
+        "https://www.facebook.com/webcraft",
+        "https://www.instagram.com/webcraft",
+        "https://twitter.com/webcraft"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "description": "Web development services starting from ₹9,999",
+        "priceCurrency": "INR",
+        "price": "9999"
+      }
+    }
+    </script>
+    
+    <!-- Performance and Analytics -->
+    <script>
+      // Performance timing
+      window.performance && window.performance.mark && window.performance.mark('app_start');
+    </script>
+    
+    <!-- Critical CSS (inline for performance) -->
+    <style>
+      /* Critical above-the-fold styles */
+      body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading spinner */
+      .loading-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 20px;
+        text-align: center;
+      }
+      
+      /* Hide loading when React app loads */
+      .app-loaded .loading-container {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-container" id="loading-screen">
+      <div class="text-center">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading WebCraft...</div>
+      </div>
+    </div>
+    
+    <!-- React App Root -->
+    <div id="root"></div>
+    
+    <!-- Vite Script -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- No Script Fallback -->
+    <noscript>
+      <div style="padding: 50px; text-align: center; font-family: Arial, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>This website requires JavaScript to function properly. Please enable JavaScript in your browser settings and refresh the page.</p>
+      </div>
+    </noscript>
+    
+    <!-- Hide loading screen once React app starts -->
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loading-screen');
+          const root = document.getElementById('root');
+          
+          // Check if React app has started loading
+          const checkAppLoad = setInterval(function() {
+            if (root.hasChildNodes()) {
+              document.body.classList.add('app-loaded');
+              if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+              }
+              clearInterval(checkAppLoad);
+              
+              // Mark app as loaded for performance tracking
+              window.performance && window.performance.mark && window.performance.mark('app_loaded');
+            }
+          }, 100);
+          
+          // Fallback: hide loading screen after 5 seconds
+          setTimeout(function() {
+            document.body.classList.add('app-loaded');
+            if (loadingScreen) {
+              loadingScreen.style.display = 'none';
+            }
+            clearInterval(checkAppLoad);
+          }, 5000);
+        }, 500);
+      });
+    </script>
+    
+    <!-- Schema for Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Web Development Services",
+      "description": "Professional web development, mobile apps, and digital solutions",
+      "provider": {
+        "@type": "Organization",
+        "name": "WebCraft"
+      },
+      "areaServed": "India",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Website Package"
+            },
+            "price": "9999",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Professional Website Package"
+            },
+            "price": "18999",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Enterprise Website Package"
+            },
+            "price": "35999",
+            "priceCurrency": "INR"
+          }
+        ]
+      }
+    }
+    </script>
+  </body>
+</html>
