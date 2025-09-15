@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import { } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   CheckIcon,
@@ -231,7 +231,7 @@ const Pricing = () => {
             variants={containerVariants}
             className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
-            {plans.map((plan, index) => (
+            {plans.map((plan) => (
               <motion.div
                 key={plan.name}
                 variants={itemVariants}
@@ -347,9 +347,9 @@ const Pricing = () => {
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            {whyChoose.map((item, index) => (
+            {whyChoose.map((item) => (
               <motion.div
-                key={index}
+                key={item.title}
                 variants={itemVariants}
                 className={`${theme.colors.background} p-6 rounded-xl ${theme.shadows} border ${theme.colors.border} text-center`}
               >
@@ -397,9 +397,9 @@ const Pricing = () => {
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {additionalServices.map((service, index) => (
+            {additionalServices.map((service) => (
               <motion.div
-                key={index}
+                key={service.name}
                 variants={itemVariants}
                 className={`${theme.colors.backgroundAlt} p-6 rounded-lg ${theme.shadows} border ${theme.colors.border} flex justify-between items-center`}
               >
@@ -461,9 +461,9 @@ const Pricing = () => {
                 question: 'Is there a setup fee?',
                 answer: 'No setup fees! The prices listed include everything needed to get your website live and running.'
               }
-            ].map((faq, index) => (
+            ].map((faq) => (
               <motion.div
-                key={index}
+                key={faq.question}
                 variants={itemVariants}
                 className={`${theme.colors.background} p-6 rounded-lg ${theme.shadows} border ${theme.colors.border}`}
               >

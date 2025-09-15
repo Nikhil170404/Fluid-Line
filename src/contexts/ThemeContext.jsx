@@ -1,16 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const ThemeContext = createContext();
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
-};
-
-export const themes = {
+// Theme definitions
+const themes = {
   corporate: {
     name: 'Corporate Blue',
     colors: {
@@ -193,6 +184,18 @@ export const themes = {
   },
 };
 
+const ThemeContext = createContext();
+
+// Custom hook
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
+};
+
+// Provider component
 export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState('corporate');
 
@@ -212,16 +215,17 @@ export const ThemeProvider = ({ children }) => {
 
   const theme = themes[currentTheme];
 
+  const value = { 
+    currentTheme, 
+    theme, 
+    changeTheme, 
+    themes,
+    themesList: Object.keys(themes)
+  };
+
   return (
-    <ThemeContext.Provider value={{ 
-      currentTheme, 
-      theme, 
-      changeTheme, 
-      themes,
-      themesList: Object.keys(themes)
-    }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
 };
-

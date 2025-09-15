@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import {  } from 'framer-motion';
+import { } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { 
   MapPinIcon,
@@ -129,7 +129,7 @@ const Contact = () => {
         message: '',
         urgency: 'normal'
       });
-    } catch (error) {
+    } catch {
       toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
