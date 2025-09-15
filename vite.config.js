@@ -3,13 +3,25 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 import { fileURLToPath, URL } from 'node:url';
+import { readFileSync } from 'node:fs';
 
 // Get current directory in ES modules
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Read package.json to get version
+const getPackageVersion = () => {
+  try {
+    const packageJson = JSON.parse(readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
+    return packageJson.version || '1.0.0';
+  } catch {
+    return '1.0.0';
+  }
+};
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
+  const packageVersion = getPackageVersion();
   
   return {
     plugins: [
@@ -186,7 +198,7 @@ export default defineConfig(({ mode }) => {
       devSourcemap: true
     },
     define: {
-      __APP_VERSION__: JSON.stringify(process.env.npm_package_version || '1.0.0'),
+      __APP_VERSION__: JSON.stringify(packageVersion),
       __BUILD_DATE__: JSON.stringify(new Date().toISOString())
     },
     esbuild: {

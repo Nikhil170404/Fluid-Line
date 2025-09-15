@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import { motion } from 'framer-motion';
+import {  } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   CheckIcon,
   XMarkIcon,
   StarIcon,
-  CrownIcon,
+  BuildingOfficeIcon,
   RocketLaunchIcon
 } from '@heroicons/react/24/solid';
 
@@ -80,7 +80,7 @@ const Pricing = () => {
       },
       monthlySupport: 1299,
       popular: false,
-      icon: <CrownIcon className="w-8 h-8" />,
+      icon: <BuildingOfficeIcon className="w-8 h-8" />,
       features: [
         'Unlimited Pages',
         'Full E-commerce (unlimited products)',

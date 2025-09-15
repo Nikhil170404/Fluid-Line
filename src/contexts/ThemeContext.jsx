@@ -1,7 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Theme definitions
-const themes = {
+// eslint-disable-next-line react-refresh/only-export-components
+
+// Theme definitions moved to separate object to fix fast refresh warning
+const themeDefinitions = {
   corporate: {
     name: 'Corporate Blue',
     colors: {
@@ -116,7 +119,7 @@ const themes = {
       primary: 'bg-indigo-700',
       primaryHover: 'hover:bg-indigo-800',
       secondary: 'bg-indigo-100',
-      accent: 'bg-gold-500',
+      accent: 'bg-yellow-500',
       text: 'text-gray-900',
       textLight: 'text-gray-600',
       textWhite: 'text-white',
@@ -201,26 +204,26 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('portfolio-theme');
-    if (savedTheme && themes[savedTheme]) {
+    if (savedTheme && themeDefinitions[savedTheme]) {
       setCurrentTheme(savedTheme);
     }
   }, []);
 
   const changeTheme = (themeName) => {
-    if (themes[themeName]) {
+    if (themeDefinitions[themeName]) {
       setCurrentTheme(themeName);
       localStorage.setItem('portfolio-theme', themeName);
     }
   };
 
-  const theme = themes[currentTheme];
+  const theme = themeDefinitions[currentTheme];
 
   const value = { 
     currentTheme, 
     theme, 
     changeTheme, 
-    themes,
-    themesList: Object.keys(themes)
+    themes: themeDefinitions,
+    themesList: Object.keys(themeDefinitions)
   };
 
   return (
