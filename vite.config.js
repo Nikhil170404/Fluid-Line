@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
-import { fileURLToPath, URL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 
 // Get current directory in ES modules
@@ -28,91 +27,8 @@ export default defineConfig(({ mode }) => {
       react({
         // Enable Fast Refresh
         fastRefresh: true,
-        // Babel plugins for optimizations
-        babel: {
-          plugins: [
-            // Remove console.log in production
-            isProduction && [
-              'babel-plugin-transform-remove-console',
-              { exclude: ['error', 'warn'] }
-            ]
-          ].filter(Boolean)
-        }
+        // Removed problematic babel plugins
       }),
-      VitePWA({
-        registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
-        manifest: {
-          name: 'WebCraft - Professional Web Development',
-          short_name: 'WebCraft',
-          description: 'Professional web development services at 30% cheaper than competitors',
-          theme_color: '#3b82f6',
-          background_color: '#ffffff',
-          display: 'standalone',
-          orientation: 'portrait',
-          scope: '/',
-          start_url: '/',
-          icons: [
-            {
-              src: 'pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any maskable'
-            }
-          ]
-        },
-        workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}'],
-          runtimeCaching: [
-            {
-              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'google-fonts-cache',
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-                },
-                cacheKeyWillBeUsed: async ({ request }) => {
-                  return `${request.url}?v=1`;
-                }
-              }
-            },
-            {
-              urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'gstatic-fonts-cache',
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-                }
-              }
-            },
-            {
-              urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'images-cache',
-                expiration: {
-                  maxEntries: 100,
-                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
-                }
-              }
-            }
-          ]
-        }
-      })
     ],
     resolve: {
       alias: {
@@ -190,11 +106,6 @@ export default defineConfig(({ mode }) => {
       modules: {
         localsConvention: 'camelCase'
       },
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "@/styles/variables.scss";'
-        }
-      },
       devSourcemap: true
     },
     define: {
@@ -202,7 +113,7 @@ export default defineConfig(({ mode }) => {
       __BUILD_DATE__: JSON.stringify(new Date().toISOString())
     },
     esbuild: {
-      // Remove console.log in production
+      // Remove console.log in production (simpler method)
       drop: isProduction ? ['console', 'debugger'] : []
     }
   };
