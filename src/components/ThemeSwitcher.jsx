@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import { SwatchIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import {  AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 
 const ThemeSwitcher = () => {

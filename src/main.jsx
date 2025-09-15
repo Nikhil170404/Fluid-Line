@@ -64,12 +64,19 @@ class ErrorBoundary extends React.Component {
 // Performance monitoring (optional)
 const reportWebVitals = (onPerfEntry) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
+    // Dynamic import with proper error handling
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
+      try {
+        getCLS(onPerfEntry);
+        getFID(onPerfEntry);
+        getFCP(onPerfEntry);
+        getLCP(onPerfEntry);
+        getTTFB(onPerfEntry);
+      } catch (error) {
+        console.warn('Web Vitals measurement failed:', error);
+      }
+    }).catch((error) => {
+      console.warn('Web Vitals library not available:', error);
     });
   }
 };
@@ -86,7 +93,10 @@ root.render(
 );
 
 // Report web vitals (optional - for performance monitoring)
-reportWebVitals(console.log);
+// Only run in production to avoid console clutter during development
+if (import.meta.env.PROD) {
+  reportWebVitals(console.log);
+}
 
 // Service Worker Registration (optional - for PWA features)
 if ('serviceWorker' in navigator && import.meta.env.PROD) {

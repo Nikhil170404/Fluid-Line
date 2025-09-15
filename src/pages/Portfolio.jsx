@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import {  AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   EyeIcon,
   CodeBracketIcon,

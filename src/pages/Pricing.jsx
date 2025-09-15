@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import {  } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   CheckIcon,
